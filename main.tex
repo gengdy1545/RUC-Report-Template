@@ -1,0 +1,258 @@
+%!TeX program = xelatex
+\documentclass[12pt,hyperref,a4paper,UTF8]{ctexart}
+\usepackage{RUCReport}
+\usepackage{listings}
+\usepackage{xcolor}
+% 定义可能使用到的颜色
+\definecolor{CPPLight}  {HTML} {686868}
+\definecolor{CPPSteel}  {HTML} {888888}
+\definecolor{CPPDark}   {HTML} {262626}
+\definecolor{CPPBlue}   {HTML} {4172A3}
+\definecolor{CPPGreen}  {HTML} {487818}
+\definecolor{CPPBrown}  {HTML} {A07040}
+\definecolor{CPPRed}    {HTML} {AD4D3A}
+\definecolor{CPPViolet} {HTML} {7040A0}
+\definecolor{CPPGray}  {HTML} {B8B8B8}
+\definecolor{keywordcolor}{rgb}{0.8,0.1,0.5}
+\definecolor{webgreen}{rgb}{0,.5,0}
+\definecolor{bgcolor}{rgb}{0.92,0.92,0.92}
+
+\lstset{
+    breaklines = true,                                   % 自动将长的代码行换行排版
+    extendedchars=false,                                 % 解决代码跨页时，章节标题，页眉等汉字不显示的问题
+    columns=fixed,       
+    numbers=left,                                        % 在左侧显示行号
+    numberstyle=\small
+    frame=none,                                          % 不显示背景边框
+    % backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+    keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+    numberstyle=\footnotesize\color{darkgray},           % 设定行号格式
+    commentstyle=\it\color[RGB]{0,96,96},                % 设置代码注释的格式
+    stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+    showstringspaces=false,                              % 不显示字符串中的空格
+    % frame=leftline,topline,rightline, bottomline         %分别对应只在左侧，上方，右侧，下方有竖线
+    frame=shadowbox,                                     % 设置阴影
+    rulesepcolor=\color{red!20!green!20!blue!20},        % 阴影颜色
+}
+
+\lstdefinestyle{CPP}{
+    language=c++,                                        % 设置语言
+    morekeywords={alignas,continute,friend,register,true,alignof,decltype,goto,
+    reinterpret_cast,try,asm,defult,if,return,typedef,auto,delete,inline,short,
+    typeid,bool,do,int,signed,typename,break,double,long,sizeof,union,case,
+    dynamic_cast,mutable,static,unsigned,catch,else,namespace,static_assert,using,
+    char,enum,new,static_cast,virtual,char16_t,char32_t,explict,noexcept,struct,
+    void,export,nullptr,switch,volatile,class,extern,operator,template,wchar_t,
+    const,false,private,this,while,constexpr,float,protected,thread_local,
+    const_cast,for,public,throw,std},
+    emph={map,set,multimap,multiset,unordered_map,unordered_set,
+    unordered_multiset,unordered_multimap,vector,string,list,deque,
+    array,stack,forwared_list,iostream,memory,shared_ptr,unique_ptr,
+    random,bitset,ostream,istream,cout,cin,endl,move,default_random_engine,
+    uniform_int_distribution,iterator,algorithm,functional,bing,numeric,},
+    emphstyle=\color{CPPViolet}, 
+}
+
+\lstdefinestyle{Java}{
+    language=[AspectJ]Java,
+    keywordstyle=\color{keywordcolor}\bfseries
+}
+
+\lstdefinestyle{Python}{
+    language=Python,
+}
+
+%%-------------------------------正文开始---------------------------%%
+\begin{document}
+
+%%-----------------------封面--------------------%%
+\cover
+
+%%------------------摘要-------------%%
+%\begin{abstract}
+%
+%在此填写摘要内容
+%
+%\end{abstract}
+
+\thispagestyle{empty} % 首页不显示页码
+
+%%--------------------------目录页------------------------%%
+\newpage
+\tableofcontents
+
+%%------------------------正文页从这里开始-------------------%
+\newpage
+
+%%可选择这里也放一个标题
+%\begin{center}
+%    \title{ \Huge \textbf{{标题}}}
+%\end{center}
+
+\section{模板说明}
+本模板主要适用于一些课程的平时论文以及期末论文，默认页边距为2.5cm，中文宋体，英文Times New Roman，字号为12pt（小四）。
+
+编译方式：\verb|xelatex -> bibtex -> xelatex*2|
+
+
+默认模板文件由以下四部分组成：
+\begin{itemize}
+    \item \texttt{main.tex} 主文件
+    \item \texttt{reference.bib} 参考文献，使用bibtex
+    \item \texttt{RUCReport.sty} 文档格式控制，包括一些基础的设置，如页眉、标题、学院、学号、姓名等
+    \item \texttt{figures} 放置图片的文件夹
+\end{itemize}
+
+第一次使用时需前往\texttt{RUCReportReport.sty} 对标题、姓名、学号、页眉等进行设置，设置完后即可一劳永逸，封面LOGO亦可替换。
+
+默认带有封面页以及目录页，页码从目录页开始。
+
+\section{一些插入功能}
+\subsection{插入公式}
+行内公式$v-\varepsilon+\phi=2$。
+
+插入行间公式如\autoref{Euler}：
+\begin{equation}
+    v-\varepsilon+\phi=2
+    \label{Euler}
+\end{equation}
+
+\subsection{插入图片}
+RUC校徽如\autoref{RUC}所示，注意这里使用了\verb|~\autoref{}|命令，也就是会自动生成“图”“式”等前缀，无需手动输入。
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width =.5\textwidth]{figures/ruc_logo.eps}
+    \caption{中国人民大学}
+    \label{RUC}
+\end{figure}
+
+插入上面图片的代码：
+
+\begin{verbatim}
+    \begin{figure}[!htbp]
+        \centering
+        \includegraphics[width =.5\textwidth]{figures/ruc_logo.eps}
+        \caption{中国人民大学}
+        \label{RUC}
+    \end{figure}
+\end{verbatim}
+
+\subsection{插入文本框}
+本模板定义了一个圆角灰底的文本框，使用简化命令\verb|\tbox{}|即可，如果你不喜欢，可以前往 \texttt{RUCReport.sty}对其进行修改。
+
+\tbox{
+    这是一个圆角灰底的文本框
+}
+
+\subsection{插入表格}
+本模板文件如表~\ref{doc} 所示。
+\begin{table}[!htbp]
+    \centering
+    \begin{tabular}{l  | l}
+    \hline
+        文件名 & 说明 \\
+        \hline
+        \texttt{main.tex}  & 主文件 \\
+        \texttt{reference.bib} & 参考文献 \\
+        \texttt{RUCReport.sty}  & 文档格式控制\\
+        \texttt{figures}  & 图片文件夹 \\
+        \hline
+    \end{tabular}
+    \caption{本模板文件组成}
+    \label{doc}
+\end{table}
+
+%\section{定理环境}
+%\begin{Theorem}
+%\end{Theorem}
+%
+%\begin{Lemma}
+%\end{Lemma}
+%
+%\begin{Corollary}
+%\end{Corollary}
+%
+%\begin{Proposition}
+%\end{Proposition}
+%
+%\begin{Definition}
+%\end{Definition}
+%
+%\begin{Example}
+%\end{Example}
+%
+%\begin{proof}
+%\end{proof}
+
+\subsection{插入高亮代码块}
+利用\verb|lstlisting| 配置
+\begin{lstlisting}[style=CPP, title="c++代码"]
+#include <iostream>
+#include <array>
+int main()
+{
+    constexpr int MAX = 100;
+    std::array<int, MAX> arr;
+}  
+\end{lstlisting}
+
+\begin{lstlisting}[style=Java, title="Java代码"]
+public void addAdvertisement(String company, String ad_Category, String ad_Type, String ad_Price)
+{
+    int price = Integer.parseInt(ad_Price);
+    ad = new Advertisement(company, ad_Category, ad_Type, price);
+    adList.add(index, ad);
+    index++;
+    anDM = getDefaultDirectoryManager();
+    ActorTuple tuple = new ActorTuple(getActorName(), "advertiser",
+    company, ad_Category, ad_Type, price, index-1);
+    send(anDM, "register", tuple);
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=Python, title="Python代码"]                
+import random
+import collections
+Card = collections.namedtuple('Card', ['rank', 'suit'])
+
+class FrenchDesk:
+    ranks = [str(n) for n in range(2, 11)] + list('JQKA')
+    suits = 'spades diamonds clubs hearts'.split()
+    
+    def __init__(self):
+        self._cards = [Card(rank, suit) for rank in self.ranks for suit in self.suits]
+        
+    def __len__(self):
+        return len(self._cards)
+        
+    def __getitem__(self, position):
+        return self._cards[position]
+desk = FrenchDesk()
+\end{lstlisting}
+
+\subsection{插入参考文献}
+直接使用\verb|\cite{}|即可。
+
+例如：
+
+
+   \textit{ 此处引用了文献\cite{0Isaac}。此处引用了文献\cite{2016The}}
+
+
+引用过的文献会自动出现在参考文献中。
+
+\section{写在最后}
+\subsection{发布地址}
+\begin{itemize}
+    \item Github: \url{https://github.com/xxmy7/RUC_Report_Latex_Template}
+    \item Overleaf:  \url{https://www.overleaf.com/latex/template}
+\end{itemize}
+
+%%----------- 参考文献 -------------------%%
+%在reference.bib文件中填写参考文献，此处自动生成
+
+\reference
+
+
+\end{document}
