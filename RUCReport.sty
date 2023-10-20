@@ -5,7 +5,7 @@
 %%GitHub：https://github.com/xxmy7/RUC_Report_Latex_Template
 %%Overleaf：
 
-%%最后更改于2023/10/18
+%%最后更改于2023/10/20
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%在"中国科学院大学课程论文模板"基础上修改而来
@@ -42,6 +42,12 @@
 \RequirePackage{tcolorbox}
 
 \RequirePackage{fontawesome}
+\RequirePackage{caption}
+%% 去掉图标标题中的冒号，将分隔变为空格
+% 或者是：
+% \captionsetup{labelformat=default,labelsep=space} %去除冒号
+\captionsetup[table]{labelsep=space} % 表
+\captionsetup[figure]{labelsep=space} % 图  
 
 %% 更改摘要二字的样式
 \renewcommand{\abstractname}{\textbf{\large {摘\quad 要}}} 
