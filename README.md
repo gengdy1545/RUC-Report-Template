@@ -21,7 +21,7 @@
 ## 模板下载
 
 * 页面右边点击：**Clone or download -> Download Zip**
-* 已经上传至Overleaf模板，开箱即用 :point_right: [Overleaf](https://www.overleaf.com/latex/templates/)
+* 已经上传至Overleaf模板，开箱即用 :point_right: [Overleaf](https://www.overleaf.com/latex/templates/ruc-report-latex-template/hhwhvvwczbnm)
 
 ## 使用方法
 
