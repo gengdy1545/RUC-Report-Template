@@ -17,6 +17,7 @@
 
 ## 介绍
 - 用于中国人民大学(RUC)课程报告的通用简易Latex模板
+- **fork from author xxmy7 (https://github.com/xxmy7)**
 
 ## 模板下载
 
