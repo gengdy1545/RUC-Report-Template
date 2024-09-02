@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <a href="https://github.com/xxmy7/RUC_Report_Latex_Template">
-    <img alt="RUC_Latex_Template" src="https://github.com/xxmy7/RUC_Report_Latex_Template/blob/main/figures/ruc_logo.png"  width="50%"/>
+    <img alt="RUC_Latex_Template" src="https://github.com/gengdy1545/RUC-Report-Template/blob/main/figures/ruc_logo.png"  width="50%"/>
   </a>
 
   <br />
